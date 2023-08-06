@@ -7,7 +7,7 @@ import "./assets/img/4geeks.ico";
 
 window.onload = () => {
   document.querySelector("#btn").addEventListener("click", () => {
-    document.querySelector("#dominio").innerHTML = generarDominio();
+    generarListaDominios(listaDominios, "lista");
   });
 };
 
@@ -30,4 +30,14 @@ for (let pronombre of listaPronombres) {
 
 let generarDominio = () => {
   return listaDominios[Math.floor(Math.random() * 256)];
+};
+
+let generarListaDominios = (array, id) => {
+  for (let nameGenerated of array) {
+    let list = document.createElement("li");
+    list.classList.add("list-group-item", "text-start");
+    list.innerHTML = nameGenerated;
+    document.getElementById(id).appendChild(list);
+    document.getElementById(id).appendChild(document.createElement("br"));
+  }
 };
