@@ -30,13 +30,19 @@ for (let pronombre of listaPronombres) {
 
 var generarListaDominios = function() {
   for (let nameGenerated of listaDominios) {
-    let list = document.createElement("li");
-    list.classList.add("list-group-item", "text-start");
-    list.innerHTML = nameGenerated;
-    document.getElementById("lista").appendChild(list);
+    let listItem = document.createElement("li");
+    listItem.classList.add(
+      "list-group-item",
+      "text-start",
+      "justify-content-center",
+      "w-25"
+    );
+    listItem.innerHTML = nameGenerated;
+    document.getElementById("lista").appendChild(listItem);
     document.getElementById("lista").appendChild(document.createElement("br"));
   }
   document
     .getElementById("onTimeButton")
     .removeEventListener("click", generarListaDominios);
+  document.getElementById("onTimeButton").classList.add("d-none");
 };
